@@ -8,19 +8,28 @@
 
 static registry_t *r = NULL;
 
+void *
+emalloc(size_t size)
+{
+	void *p;
+	p = malloc(size);
+	if(p == NULL) {
+		fprintf(stderr, "FATAL: can't allocate memory.\n");
+		exit(1);
+	}
+	return p;
+}
+
 void
 _register_test(char *name, void (*fn)(test_t *t))
 {
 	test_t *t;
-	t = (test_t *)malloc(sizeof(test_t));
-	if(t == NULL) {
-		fprintf(stderr, "Out of memory, can't allocate memory for the test.\n");
-	}
+	t = (test_t *)emalloc(sizeof(test_t));
 	t->name = name;
 	t->failed = 0;
 	t->failures = NULL;
 	t->fn = fn;
-	registry_t *p = (registry_t *)malloc(sizeof(registry_t));
+	registry_t *p = (registry_t *)emalloc(sizeof(registry_t));
 	p->item = t;
 	p->next = r;
 	r = p;
@@ -55,7 +64,7 @@ test_fail(test_t *t, char* reason)
 {
 	t->failed = 1;
 	failure_t *failure;
-	failure = (failure_t *)malloc(sizeof(failure_t));
+	failure = (failure_t *)emalloc(sizeof(failure_t));
 	failure->reason = reason;
 	failure->next = t->failures;
 	t->failures = failure;
