@@ -2,14 +2,14 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
-OBJS = yactf.o
+OBJS = yatf.o
 
 CFLAGS = -I/usr/local/include/ -Wall -Wextra -Werror -pedantic -ansi
 
-yactf.o: yactf.h
+yatf.o: yatf.h
 
-libyactf.a: $(OBJS)
-	ar -crs libyactf.a $(OBJS)
+libyatf.a: $(OBJS)
+	ar -crs libyatf.a $(OBJS)
 
 clean:
-	rm -f $(OBJS) libyactf.a
+	rm -f $(OBJS) libyatf.a
