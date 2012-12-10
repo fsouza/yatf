@@ -8,8 +8,8 @@ CFLAGS = -I/usr/local/include/ -Wall -Wextra -Werror -pedantic -ansi
 
 yactf.o: yactf.h
 
-yactf.a: $(OBJS)
-	ar -crs yactf.a $(OBJS)
+libyactf.a: $(OBJS)
+	ar -crs libyactf.a $(OBJS)
 
 clean:
-	rm $(OBJS) yactf.a
+	rm $(OBJS) libyactf.a
