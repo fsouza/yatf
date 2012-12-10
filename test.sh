@@ -4,7 +4,7 @@ CFLAGS="-I$PWD $CFLAGS"
 LDFLAGS="-L$PWD $LDFLAGS"
 status=0
 
-make libyactf.a > /dev/null
+make yactf.o > /dev/null
 for c_file in `ls tests/test_*.c`
 do
 	expected=`grep '^/\* Output:' $c_file | cut -d ':' -f2,3 | sed 's/^ //' | sed 's, \*/$,,'`
@@ -18,7 +18,7 @@ do
 		status=1
 		continue
 	fi
-	$CC $CFLAGS $LDFLAGS -lyactf -o $e_file $o_file
+	$CC $CFLAGS $LDFLAGS -o $e_file $o_file yactf.o
 	if [ $? != 0 ]
 	then
 		echo "FAIL: $c_file"
