@@ -27,7 +27,7 @@ do
 		rm $o_file
 		continue
 	fi
-	output=`./$e_file`
+	output=`./$e_file | grep -a '^Ran'`
 	rm $e_file $o_file
 	if [ "$expected" != "$output" ]
 	then
