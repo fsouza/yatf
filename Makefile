@@ -12,4 +12,4 @@ libyactf.a: $(OBJS)
 	ar -crs libyactf.a $(OBJS)
 
 clean:
-	rm $(OBJS) libyactf.a
+	rm -f $(OBJS) libyactf.a
