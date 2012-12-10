@@ -7,7 +7,6 @@
 /* Output: Ran 2 tests. Failures: 2. */
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <yatf.h>
 
 int
