@@ -25,13 +25,14 @@ emalloc(size_t size)
 void
 _register_test(char *name, void (*fn)(test_t *t))
 {
+	registry_t *p;
 	test_t *t;
 	t = (test_t *)emalloc(sizeof(test_t));
 	t->name = name;
 	t->failed = 0;
 	t->failures = NULL;
 	t->fn = fn;
-	registry_t *p = (registry_t *)emalloc(sizeof(registry_t));
+	p = (registry_t *)emalloc(sizeof(registry_t));
 	p->item = t;
 	p->next = r;
 	r = p;
@@ -64,30 +65,30 @@ free_suite()
 void
 test_fail(test_t *t, char* reason)
 {
-	t->failed = 1;
 	failure_t *failure;
 	failure = (failure_t *)emalloc(sizeof(failure_t));
 	failure->reason = reason;
 	failure->next = t->failures;
 	t->failures = failure;
+	t->failed = 1;
 }
 
 int
 run_tests()
 {
+	registry_t *p = r;
+	failure_t *f;
 	int ran, failed, plural;
 	ran = failed = 0;
 	if(r == NULL) {
 		printf("Warning: no tests to run.\n");
 		return 0;
 	}
-	registry_t *p = r;
 	while(p != NULL) {
 		p->item->fn(p->item);
 		ran++;
 		if(p->item->failed) {
 			printf("FAIL: %s\n", p->item->name);
-			failure_t *f;
 			f = p->item->failures;
 			while(f != NULL) {
 				printf("      %s\n", f->reason);

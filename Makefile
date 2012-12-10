@@ -4,7 +4,7 @@
 
 OBJS = yactf.o
 
-CFLAGS = -I/usr/local/include/ -Wall -Wextra -Werror -pedantic
+CFLAGS = -I/usr/local/include/ -Wall -Wextra -Werror -pedantic -ansi
 
 yactf.o: yactf.h
 

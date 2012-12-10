@@ -1,6 +1,8 @@
-// Copyright 2012 Francisco Souza. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+/*
+ * Copyright 2012 Francisco Souza. All rights reserved.
+ * Use of this source code is governed by a BSD-style
+ * license that can be found in the LICENSE file.
+ */
 
 #define register_test(fn) _register_test(#fn, fn)
 #define test_fatal(t, reason) test_fail(t, reason); return
