@@ -48,7 +48,7 @@ free_test(test_t *t)
 }
 
 void
-free_suite()
+free_suite(void)
 {
 	registry_t *p;
 	while(r != NULL) {
@@ -72,7 +72,7 @@ test_fail(test_t *t, char* reason)
 }
 
 int
-run_tests()
+run_tests(void)
 {
 	registry_t *p = r;
 	failure_t *f;

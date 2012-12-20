@@ -32,5 +32,5 @@ typedef struct test_list_t registry_t;
 void test_fail(test_t *t, char *reason);
 void _register_test(char *name, void (*fn)(test_t *t));
 void free_test(test_t *t);
-void free_registry();
-int run_tests();
+void free_registry(void);
+int run_tests(void);
