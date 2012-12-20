@@ -1,10 +1,8 @@
-/*
- * Copyright 2012 Francisco Souza. All rights reserved.
- * Use of this source code is governed by a BSD-style
- * license that can be found in the LICENSE file.
- */
+// Copyright 2012 Francisco Souza. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
 
-/* Output: Ran 1 test. Failures: 0. */
+// Output: Ran 1 test. Failures: 0.
 
 #include <stdio.h>
 #include <stdlib.h>
