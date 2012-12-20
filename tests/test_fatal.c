@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Output: Ran 2 tests. Failures: 2.
+// Output: Ran: 2 tests. Succeeded: 0. Failed: 2.
 
 #include <stdio.h>
 #include <yatf.h>

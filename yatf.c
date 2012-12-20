@@ -99,6 +99,6 @@ run_tests(void)
 	}
 	free_suite();
 	plural = ran > 1 ? 's' : '\0';
-	printf("Ran %d test%c. Failures: %d.\n", ran, plural, failed);
+	printf("Ran: %d test%c. Succeeded: %d. Failed: %d.\n", ran, plural, ran-failed, failed);
 	return failed > 0;
 }

@@ -11,7 +11,7 @@ status=0
 make yatf.o > /dev/null
 for c_file in `ls tests/test_*.c`
 do
-	expected=`grep '^// Output:' $c_file | cut -d ':' -f2,3 | sed 's/^ //'`
+	expected=`grep '^// Output:' $c_file | cut -d ':' -f2,3,4,5 | sed 's/^ //'`
 	e_file=${c_file%.*}
 	o_file=${e_file}.o
 	$CC $CFLAGS -o $o_file -c $c_file
