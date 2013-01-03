@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "yatf.h"
 
 static registry_t *r = NULL;
@@ -43,6 +44,7 @@ free_test(test_t *t)
 	while(t->failures != NULL) {
 		f = t->failures;
 		t->failures = t->failures->next;
+		free(f->reason);
 		free(f);
 	}
 }
@@ -65,7 +67,8 @@ test_fail(test_t *t, char* reason)
 {
 	failure_t *failure;
 	failure = (failure_t *)emalloc(sizeof(failure_t));
-	failure->reason = reason;
+	failure->reason = (char *)emalloc((strlen(reason) + 1) * sizeof(char));
+	strcpy(failure->reason, reason);
 	failure->next = t->failures;
 	t->failures = failure;
 	t->failed = 1;
